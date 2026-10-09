@@ -1,0 +1,50 @@
+Table1 has feedback comment received for a restaurant. Column "Comment" has the feedback text. 
+Analyze the text and give response type as "Positive" or "Negative" or "Neutral".
+Enter this response in column "Type"
+
+======
+
+Table1 has feedback data. 
+It has column "VisitType", "Branch", "Type", "Text". 
+Give me code to construct email message in column "Text". 
+Important note, depending on the value in column "Type" the email body should be differtent.
+The email content will the below draft content with the column values from the table.
+If value in column "Type" = "Negative" then:
+{
+Dear Sir/Madam,
+
+Hope you are doing well.
+You visited our [Branch] for a [VisitType] meal.
+We would like to improve our service, kindly give us one more opportunity to serve you better.
+
+Regards,
+XYZ
+}
+Else If value in column "Type" = "Positive" or "Neutral" then:
+{
+Dear Sir/Madam,
+
+Hope you are doing well.
+You visited our [Branch] for a [VisitType] meal.
+Kindly give us more opportunities to serve you better.
+
+Regards,
+XYZ
+}
+
+=======
+
+=IF([@Type]="Negative","Dear Sir/Madam," & CHAR(10)& CHAR(10)&
+  "Hope you are doing well." & CHAR(10)&
+  "You visited our " & [@Branch] & " for a " & [@VisitType] & "." & CHAR(10)&
+  "We would like to improve our service,kindly give us one more opportunity to serve you better." & CHAR(10)& CHAR(10)&
+  "Regards," & CHAR(10)&
+  "XYZ",IF(OR([@Type]="Positive",[@Type]="Neutral"),"Dear Sir/Madam," & CHAR(10)& CHAR(10)&
+    "Hope you are doing well." & CHAR(10)&
+    "You visited our " & [@Branch] & " for a " & [@VisitType] & "." & CHAR(10)&
+    "Kindly give us more opportunity to serve you better." & CHAR(10)& CHAR(10)&
+    "Regards," & CHAR(10)&
+    "XYZ",""))
+======
+
+Tbale1 has column "EmailAddress" and "Text". Give me a code to send email from content in "Text" column to address in "EmailAddress" column on button click

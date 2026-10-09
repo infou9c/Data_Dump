@@ -1,0 +1,9 @@
+== Proposal for workshop
+Topics - Non-Teaching & Administrative Track
+- Basics of AI
+- AI in daily life
+- Introduction to LLM
+- Prompting know-how
+- Build your AI Toolkit
+- Use AI as a personal assistant 
+- Next steps in AI pedalogy

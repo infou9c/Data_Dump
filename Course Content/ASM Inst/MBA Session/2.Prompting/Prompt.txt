@@ -1,0 +1,52 @@
+Role
+
+Task
+
+Instructions
+
+Data
+====================
+
+Role
+	Consider you are an expierenced AI Trainer and have provided training to many institutes
+
+Task
+	Draft a proposal document to the "ASM Institue, Pune" for the workshop to be conducted for the Administrative, Accounts and HR staff in the institure.
+
+Instructions
+	Here is the website link https://www.asmgroup.edu.in/ for the institute. Analyze the website and include pointers in the proposal which will have impact on the Head Of Departments
+	Mention about the importance of adoption of AI in day to day activitites.
+	
+Data
+	Include the below topics in the proposal, which will give them an overview of the topics to be covered.
+	- Basics of AI
+	- AI in daily life
+	- Introduction to LLM
+	- Prompting know-how
+	- Build your AI Toolkit
+	- Build your AI Toolkit
+	- Use AI as a personal assistant 
+	- Next steps in AI pedalogy
+
+
+Anything missing??
+
+========= Gemini and Co-pilot
+
+Consider you are an experienced AI Trainer and have provided training to many institutes
+
+Draft a proposal document for the "ASM Institute, Pune" for the workshop to be conducted for the Administrative, Accounts and HR staff in the institute.
+
+Here is the website link https://www.asmgroup.edu.in/ for the institute. Analyze the website and include pointers in the proposal that will have an impact on the Head of Departments
+Mention the importance of the adoption of AI in day to day activitites.
+
+Include the following topics in the proposal, which will give them an overview of the topics to be covered.
+- Basics of AI
+- AI in daily life
+- Introduction to LLM
+- Prompting know-how
+- Build your AI Toolkit
+- Use AI as a personal assistant 
+- Next steps in AI pedagogy
+
+=============================

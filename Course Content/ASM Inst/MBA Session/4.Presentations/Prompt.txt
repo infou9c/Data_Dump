@@ -1,0 +1,10 @@
+NotebookLM
+	SWOT analysis in decision making
+		- Import the search
+
+	Create a 10 slide outline based on all the sources in the notebook on the topic "SWOT Analysis - Decision Making". Each slide should be covering key points for effecting decision making and how SWOT analysis assist in the process of decision making
+
+Gemini - Canavas mode
+	Turn the NotebookLM notes into a presentation. Add visuals and examples relevant to the topic. Ensure a smooth slide transition.
+
+

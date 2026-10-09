@@ -1,0 +1,112 @@
+Option Explicit
+
+'=========================================================
+' Sends emails using Table10 columns:
+'   Email  -> recipient
+'   Body   -> email content
+'
+' Edit the SUBJECT_TEXT constant as needed.
+'=========================================================
+Public Sub SendEmails_From_Table10()
+
+    Const TABLE_NAME As String = "Table10"
+    Const SUBJECT_TEXT As String = "Fee Balance Reminder"
+    Const SEND_MODE As Boolean = False  'False = Display (preview), True = Send immediately
+
+    Dim ws As Worksheet
+    Dim lo As ListObject
+    Dim emailCol As ListColumn, bodyCol As ListColumn
+    Dim r As ListRow
+    Dim toAddr As String, msgBody As String
+
+    '--- find the table anywhere in the workbook
+    Set lo = FindTableByName(TABLE_NAME)
+    If lo Is Nothing Then
+        MsgBox "Could not find a table named '" & TABLE_NAME & "'.", vbExclamation
+        Exit Sub
+    End If
+    Set ws = lo.Parent
+
+    '--- find required columns
+    On Error GoTo ColErr
+    Set emailCol = lo.ListColumns("Email")
+    Set bodyCol = lo.ListColumns("Body")
+    On Error GoTo 0
+
+    '--- Outlook objects (late binding: no reference needed)
+    Dim olApp As Object, olMail As Object
+    Set olApp = GetOutlookApp()
+    If olApp Is Nothing Then
+        MsgBox "Outlook is not available. Please open Outlook and try again.", vbExclamation
+        Exit Sub
+    End If
+
+    Dim sentCount As Long, skipCount As Long
+
+    For Each r In lo.ListRows
+
+        toAddr = Trim(CStr(r.Range.Cells(1, emailCol.Index).Value))
+        msgBody = CStr(r.Range.Cells(1, bodyCol.Index).Value)
+
+        'Skip invalid/blank rows
+        If Len(toAddr) = 0 Or InStr(1, toAddr, "@") = 0 Then
+            skipCount = skipCount + 1
+        ElseIf Len(Trim(msgBody)) = 0 Then
+            skipCount = skipCount + 1
+        Else
+            Set olMail = olApp.CreateItem(0) '0 = MailItem
+            With olMail
+                .To = toAddr
+                .Subject = SUBJECT_TEXT
+                .Body = msgBody    'Plain text body (keeps line breaks from Excel)
+                If SEND_MODE Then
+                    .Send
+                Else
+                    .Display   'Preview first (safer)
+                End If
+            End With
+            sentCount = sentCount + 1
+        End If
+
+    Next r
+
+    MsgBox "Done! Prepared/Sent: " & sentCount & vbCrLf & "Skipped: " & skipCount, vbInformation
+
+    Exit Sub
+
+ColErr:
+    MsgBox "Table10 must contain columns named exactly: 'Email' and 'Body'.", vbExclamation
+End Sub
+
+
+'=========================================================
+' Helper: Get or start Outlook application (Late Binding)
+'=========================================================
+Private Function GetOutlookApp() As Object
+    On Error Resume Next
+    Set GetOutlookApp = GetObject(, "Outlook.Application")
+    If GetOutlookApp Is Nothing Then
+        Set GetOutlookApp = CreateObject("Outlook.Application")
+    End If
+    On Error GoTo 0
+End Function
+
+
+'=========================================================
+' Helper: Find a table (ListObject) by name in workbook
+'=========================================================
+Private Function FindTableByName(ByVal tableName As String) As ListObject
+    Dim ws As Worksheet
+    Dim lo As ListObject
+
+    For Each ws In ThisWorkbook.Worksheets
+        For Each lo In ws.ListObjects
+            If StrComp(lo.Name, tableName, vbTextCompare) = 0 Then
+                Set FindTableByName = lo
+                Exit Function
+            End If
+        Next lo
+    Next ws
+
+    Set FindTableByName = Nothing
+End Function
