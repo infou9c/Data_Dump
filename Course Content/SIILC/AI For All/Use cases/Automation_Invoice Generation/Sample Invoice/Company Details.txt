@@ -1,0 +1,32 @@
+“Use these company details and generate a professional invoice PDF for each customer”
+
+
+Company Name: U9C Learning & Consultancy
+
+Address:
+U9C Learning & Consultancy
+Balewadi, Pune – 411045, Maharashtra, India
+
+Contact Details:
+📞 Phone: +91 89751 10400
+📧 Email: info.u9c@gmail.com
+GST Details:
+GSTIN: 27ABCDE1234F1Z5
+PAN: ABCDE1234F
+Bank Details:
+Bank Name: HDFC Bank
+Account Name: U9C Learning & Consultancy
+Account Number: 50200012345678
+IFSC Code: HDFC0001234
+UPI ID: u9c@hdfcbank
+
+Place of Supply: Maharashtra
+
+Terms & Conditions:
+Payment due within 7 days from invoice date
+Late payment may incur additional charges
+No refund once service is delivered
+Subject to Mumbai jurisdiction
+
+Authorized Signatory:
+U9C Learning & Consultancy

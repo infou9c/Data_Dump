@@ -1,0 +1,9 @@
+Image to Excel
+During a management meeting we discussed the process and schedule of admissions of the BCA first year. We took some notes on the white board I'm attaching the image of those notes here.
+Make me well formatted word document for schedule and process which I need to share with the admission staff.
+
+
+Image to Excel
+I have attached image of a table having data for fees collection. 
+Convert this image data to a excel table data and provide the excel document to download.
+Consider the first row to be column headers.

@@ -1,0 +1,31 @@
+Attached excel document has feedback comment received for a our restaurants in Pune. It has columns "VisitType", "Branch", "Type", "EmailText" and "Comment". The column "Comment". has the feedback text received from customers. 
+
+Analyze the text and categorize the feedback into 3 types, such as "Positive" or "Negative" or "Neutral". 
+
+Draft distinct email content depending on the category of feedback and insert in column "EmailText". Give a final document copy with email body.
+
+The email content will the below draft content with the column values from the table.
+If value in column "Type" = "Negative" then:
+{
+Dear Sir/Madam,
+
+Hope you are doing well.
+You visited our [Branch] for a [VisitType] meal.
+We would like to improve our service, kindly give us one more opportunity to serve you better.
+
+Regards,
+Manager, 
+XYZ Group of Hotels
+}
+Else If value in column "Type" = "Positive" or "Neutral" then:
+{
+Dear Sir/Madam,
+
+Hope you are doing well.
+You visited our [Branch] for a [VisitType] meal.
+Kindly give us more opportunities to serve you better.
+
+Regards,
+Manager, 
+XYZ Group of Hotels
+}
