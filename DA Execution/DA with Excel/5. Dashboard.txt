@@ -1,0 +1,11 @@
+
+Productwise SalesAmount
+	Productwise Quantity
+Regionwise SalesAmount
+	Productwise Quantity
+Categorywise sale quantity
+Statuswise sale quantity
+
+
+=CHOOSECOLS(A40:Q62, 17, 12)
+Monthly SalesAmount

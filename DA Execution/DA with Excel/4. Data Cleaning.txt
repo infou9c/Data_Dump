@@ -1,0 +1,117 @@
+Load dataset
+- Data ribbon
+- Get Data 
+- From file
+	- From Text/CSV 
+- Transform Data
+
+Power Query Editor
+- Qeries (Left panel)
+- Data
+	- Above data we have qiery
+- Query string (right panel) 
+	- Saves all steps donw for data transformation
+- View menu
+	- Column profile
+	- Column quality
+- Data checks
+	- Analyze stats for each column
+		- For column which has issue, check quality.
+			- % of Duplicates, Valid, Error, Empty
+		- Duplicate, Empty and Error Identifications
+	- Identify primary/important columns and check data.
+	
+Data check result
+- Duplicate values in Names
+	- Rahul Sharma, Amit Jain, Priya Patel
+	- No change as Order dates are different, repeat customer.
+- Zero value or missing values for primary data
+	- Name, Quantity, UnitPrice have empty/null/0
+- DataType for informative (Non-Calculative) columns are in Number format.
+	- OrderID, EmployeeID, Phone
+- Missing Values
+	- Discount, Email, Phone, Remarks
+- Status values 
+	- Values not in consistent format/spelling
+		- completed, Completed
+		- pending, PENDING
+- City Names
+	- Values have typo/spelling
+		Hydrabad → Hyderabad
+		Banglore → Bangalore
+- Extra characters in Names
+	- Priya Patel
+	- Naveen Kumar
+- Missing SalesAmount columns
+	- Qty, UnitPrice and Discount available
+
+	
+Transformation
+- Zero value or missing values for primary data
+	- CustomerName, Quantity, UnitPrice have empty/null/0
+	- Filter and Delete rows:
+		- CustomerName = empty/blank
+			- Drop-down of column header - Remove Empty
+		- Quantity = empty/null/0
+			- Drop-down of column header - Remove Empty
+		- UnitPrice = empty/null/0
+			- Drop-down of column header - Remove Empty
+- DataType for informative (Non-Calculative) columns are in Number format.
+	- Convert datatypes to Text
+		- OrderID, EmployeeID, Phone
+			- Righ-click on column header
+			- Change Type - Text
+- Missing Values
+	- Filter and Reaplce values:
+		- Discount => 0
+		- Email => NA
+		- Phone => NA
+		- Remarks => NA
+			- Righ-click on column header
+			- Replace Values 
+- Status values 
+	- Filter and Reaplce values:
+		- completed => Completed
+		- PENDING => Pending
+			- Righ-click on column header
+			- Replace Values 
+- City Names
+	- Filter and Reaplce values:
+		- Hydrabad => Hyderabad
+		- Banglore => Bengaluru
+			- Righ-click on column header
+			- Replace Values 
+- Extra characters in CustomerName
+	- Filter and Reaplce values:
+		- Priya Patel
+		- Naveen Kumar
+			- Righ-click on column header
+			- Transform - Trin
+			- Transform - Capitalize Each WOrd
+- Close * Load Data
+
+Observation
+- Dataset already cobverted to Table.
+- All these could have been done with Power Query Editor
+	- But Query saving would not been possible
+
+- Add coulmn for SalesAmount
+	- SalesAmount = Qty * UnitPrice - Discount
+	=> =Qty * UnitPrice * (1 - Discount%)
+	
+Master tables
+- Query ribbon
+- Edit
+	- Left Panel
+	- Right-click on main query/dataset
+	- Duplicate
+	- Rename Query
+	- For required column
+		- Remove Duplicates
+		- Remove other columns
+- OR  Reuse section - Reference
+	- Creates copy of dataset
+	- Rename Query
+	- For required column
+		- Remove Duplicates
+		- Remove other columns

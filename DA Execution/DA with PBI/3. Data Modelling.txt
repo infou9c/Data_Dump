@@ -1,0 +1,32 @@
+- Create new project
+- Import "3. Data Modelling.xlsx" file
+- Select only the following tables
+	- 02_DimProduct
+	- 03_DimCustomer
+	- 04_DimSalesperson
+	- 05_DimDate
+	- 06_FactSales
+
+- Types of tables
+	- Dimension
+	- Facts
+
+02_DimProduct = Dimension
+- Products with category, subcategory, brand, price, and standard cost
+
+03_DimCustomer = Dimension
+- Customers with segment, city, state, region, signup date, and loyalty tier
+
+04_DimSalesperson = Dimension
+- Salespeople with region, manager, hire date, and level
+
+05_DimDate = Dimension
+- Date table for 2024 and 2025, including calendar and fiscal attributes
+
+06_FactSales = Facts
+- Sales transactions with prices, discounts, costs, profit, returns, channels, and shipping details
+
+Create Relationship
+06_FactSales => 05_DimDate
+- ShipDate => Date
+- OrderDate => Date

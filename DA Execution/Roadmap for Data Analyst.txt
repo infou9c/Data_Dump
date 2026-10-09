@@ -1,0 +1,98 @@
+# Roadmap for Data Analyst
+
+Fri, 09 Jan 26
+
+### Data Analytics Roadmap Overview
+
+- Core data analyst workflow: gather data → clean → analyze → visualize → storytelling
+- Business decision support through pattern identification in past data
+- Focus on seasonal trends, inventory optimization, product performance analysis
+
+### Essential Tool Stack & Learning Sequence
+
+- **Excel (1-2 months foundation)**
+  - Basic features: conditional formatting, data validation, text to columns, flash fill
+  - Formulas: VLOOKUP, INDEX MATCH, XLOOKUP - critical for interviews
+  - Power Query Editor for automated data cleaning pipelines
+  - Power Pivot for data modeling
+  - Pivot tables, charts, KPIs, slicers for dashboard creation
+- **SQL (1-3 months - non-negotiable)**
+  - 90% of jobs require SQL proficiency
+  - Core concepts: SELECT, WHERE, operators, ORDER BY, LIMIT
+  - Aggregated functions, GROUP BY, HAVING clause
+  - Joins (inner, left, right, cross, self) - heavily tested in interviews
+  - Sub queries, common table expressions, window functions
+  - Practice whiteboarding - interviews require writing queries without SQL interface
+- **Visualization Tool (1-2 months)**
+  - Choose Power BI or Tableau (similar 80-90% overlap)
+  - Power BI focus: Power Query Editor, DAX functions (60-80% of interview questions)
+  - Key DAX functions: CALCULATE, FILTER, SUM, SUMX, COUNT, COUNTX
+  - Data modeling: relationships, cardinality, filter flow
+  - Theory: Row Level Security, incremental refresh, Microsoft Fabric gateway
+
+### Python for Advanced Analytics (2-3 months)
+
+- **Core Python basics**
+  - Variables, operators, control flow (if/else, loops)
+  - Data structures: lists, tuples, sets, dictionaries
+  - Functions, modules (no need for object-oriented programming)
+- **Essential libraries**
+  - NumPy: mathematical calculations
+  - Pandas: data manipulation
+  - Matplotlib/Plotly: visualization
+  - SciPy: inferential statistics, hypothesis testing
+  - Scikit-learn: predictive analysis, machine learning algorithms
+- **Project types**
+  - Automation: data cleaning scripts, PDF generation, email automation
+  - EDA + prediction: churn analysis, fraud detection, forecasting
+  - Time series analysis for business forecasting
+
+### Statistics Foundation
+
+- **Descriptive statistics**: mean, mode, median, standard deviation, correlation vs causation
+- **Inferential statistics**: hypothesis testing, t-tests, chi-square, Z-tests, ANOVA
+- Learn when to apply each test type
+- Use SciPy library for implementation
+
+### Data Analysis Types & Applications
+
+1. **Descriptive**: What happened in the past
+2. **Diagnostic**: Why it happened (e.g., Diwali sales increase analysis)
+3. **Predictive**: What will happen in the future (requires Python)
+4. **Prescriptive**: What actions to take with current strategy
+
+### AI Integration & Workflow Automation
+
+- **Learning enhancement**
+  - Use AI for practice questions generation across all tools
+  - Custom prompts for interview preparation and concept learning
+  - Voice mode practice for communication improvement
+- **Advanced automation projects**
+  - AI agents using platforms: N8N, Zapier, Make
+  - Automated lead messaging, data processing pipelines
+  - Integration with sheets, cleaning, reporting, email automation
+- Productivity focus: people using AI productively replace those who don’t
+
+### Project Portfolio Strategy
+
+- **Minimum project requirements**
+  - Excel: 2 interactive dashboard projects from different domains
+  - SQL: 1 project with 15-20 questions and insights
+  - Power BI: 2 projects across different domains (avoid common Superstore)
+  - Python: 1 automation + 1 EDA/prediction project
+- **Data sources**: Kaggle, BigQuery public datasets, [Data.gov](http://Data.gov) (avoid YouTube tutorials)
+- **Domain variety**: ecommerce, healthcare, finance, sports for broader appeal
+- **Portfolio platforms**: GitHub repositories + dedicated portfolio website
+
+### Career Readiness Timeline
+
+- **After Excel + SQL + Power BI**: Ready for internship applications
+- **Total self-study timeline**: 6-8 months for complete skill development
+- **Job application strategy**: Apply to 1-2 year experience roles even as fresher
+- Resume tailoring critical for ATS systems
+- GitHub profile with clean project repositories essential
+- Certificate importance: minimal compared to project quality
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/0d43119a-3d13-4c6d-8e53-0f92a7a3bfe1-00demib2](https://notes.granola.ai/t/0d43119a-3d13-4c6d-8e53-0f92a7a3bfe1-00demib2)

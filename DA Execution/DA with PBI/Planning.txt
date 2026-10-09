@@ -1,0 +1,59 @@
+https://www.youtube.com/watch?v=WcpTVM7SJNE
+
+https://www.youtube.com/watch?v=VcgiiEoT1Dg
+
+Installation
+
+Difference between Excel and PBI
+- Difference
+- Similarity
+- Limiations
+- Components
+=> 0:35 mins
+
+Data to Data Science
+- Roadnap of Data..
+- Data ENgineering, MIS, Data Analyst, Business Analyst, Data Science
+
+Login creation
+
+PBI landing page
+- Recomended - complete guide.
+
+Workflow in PBI
+- Where is data
+- Import Mode & Direct Mode
+- Power Query Navigator
+	- Select only required file
+- Power Query
+	- I,port, clean, transformation
+- Data Modelling
+	- Relationship management
+		- Data for Sales, Purchase, Income, Expenses
+	- e.g. Customer in Bank for Balance, UPI limit updated
+		- Security (Personal info)
+		- Reception
+		- Desk 2 (Balance sheet, passbook update)
+		- Desk 4 UPI update 
+		- All data recorded by bank for CRM
+		- Link using Account Number
+- M Query/ DAX functions
+	- Neasurees
+	- Custom columns
+- Visuals
+	- Many of them
+	- Dashboards
+
+- Get Data
+	- Just add some sample data
+
+- Data Types
+	- Same as that in Excel
+	
+
+
+	
+	
+1:22 mins
+
+

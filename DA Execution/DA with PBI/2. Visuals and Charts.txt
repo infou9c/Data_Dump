@@ -1,0 +1,268 @@
+- Open Power Bi desktop app
+- Click Blank Report
+- Click Import Data from Excel
+- Select "2. Visuals and Charts.xlsx" file
+- Select all the worksheet under 2. Visuals and Charts.xlsx
+- Click Load
+
+Where to see the tables/data?
+- Data panel (on Right)
+	- All tables will be listed
+
+Clustered Column Chart
+- Table - 01_Sales_Trend
+- Visual panel - Option 3
+	- Option 1 - Productwise Units sold
+		X-Axis - Units
+		Y-Axis - Product
+		- Format Your Visuals 
+			- Y-axis 
+				- Values
+					- Color - Black
+				- Title - Off
+			- X-axis
+				- Values - Off
+			- Data labels - On
+				- Values
+					- Color - Black
+					- Font size - 15
+			- General 
+				- Title
+					- "Productwise Units Sold"
+					- Size - 20
+					- Horizontzl Alignment - Center
+				- Effects
+					- Width - On
+						- Color - Gray
+						- Width - 1
+						- Rounded corners - 2
+	- Option 2 - Productwise Sales
+		- Insert new clustered chart
+			- X-Axis - Sales
+			- Y-Axis - Product
+			- Legend - Region
+			- Formatting
+				- Select prev visual
+				- Format Painter
+				- Apply on new
+				- Title
+					- "Productwise Sales"
+	- Option 3 - Productwise Cost vs Price
+		- Copy-paste Option 2
+			- X-Axis - Cost 
+			- X-Axis - Price	
+				- Right-click - Rename on Visual
+					- Sum of Cost => Cost
+					- Sum of Proce => Price
+			- Y-Axis - Product			
+			- Title
+				- "Productwise Cost vs Price"
+
+Stacked Column Chart
+- Table - 01_Sales_Trend
+- Visual panel - Option 2
+	- Copy paste same 1,2,3 charts from prev
+	- Foreach change visual type => Visual panel - Option 2
+	
+Line Chart
+- Table - 01_Sales_Trend
+- Line Chart - Option 7
+	- Option 1 - "Monthly Sales"
+		- X-Axis - Month
+			- Remove Year, Quarter, Day
+		- Y-Axis - Product
+		- Format Painter
+			- Apply on new from Orev
+		- X-axis 
+			- Increase font size of Values
+		- Title
+			- "Monthly Sales"
+	- Option 2 - "Quaterly Sales"
+		- Copy paste current
+		- X-Axis - Month
+			- Select drop down arrow
+			- Show all levels
+			- Keep Quarter		
+		- Shade area - On 
+		- Title
+			- "Quaterly Sales"
+	- Option 3 - "Regionwise Monthly Sales"
+		- Copy paste current
+		- Legend - Region
+	- Option 3 - "Regionwise Quaterly Sales"
+		- Copy paste current
+		- Legend - Region
+
+Combo Chart - Line and Clustered Column Chart
+- Table - 01_Sales_Trend
+- Line Chart - Option 12
+	- Option 1 - "Regionwise Sales & Profit"
+		- X-Axis - Quarter
+		- Y-Axis - Sales
+		- Line Y-Axis - Profit
+		- Title
+		- Rename the legends
+	 Option 1 - "Regionwise Units & Margins"
+		- X-Axis - Product
+		- Y-Axis - Units
+		- Line Y-Axis - Margin
+		- Title
+		- Rename the legends
+
+Ribbon Chart
+- Table - 01_Sales_Trend
+- Ribbon Chart - Option 13
+	- Option 1 - "Regionwise Product Sales"
+		- X-Axis - Product
+		- Y-Axis - Sales
+		- Legen - Resion
+		- Title
+	 Option 2 - "Productwise Regional Sales"
+		- X-Axis - Quarter
+		- Y-Axis - Sales
+		- Legen - Product
+		- Title
+
+Category Chart
+- Table - 02_Part_To_Whole
+- Pie Chart - Option 17
+	- Option 1 - Categorywise Sales
+		- Legend - Category
+		- Values - Sales
+		- Format painter from CChart 1
+		- Title
+		- Legebds
+			- Font size
+			- Color
+			- Position
+- Donut Chart - Option 18
+	- Use same chart, change type to Donut chart
+	
+Category Chart
+- Table - 02_Part_To_Whole
+- Pie Chart - Option 17
+	- Option 1 - Categorywise Sales
+		- Legend - Category
+		- Values - Sales
+		- Format painter from CChart 1
+		- Title
+		- Legebds
+			- Font size
+			- Color
+			- Position
+- Donut Chart - Option 18
+	- Use same chart, change type to Donut chart
+- Tree Map - Option 19
+	- Use same chart, change type to Tree Map
+		- Category - Category
+		- Details - Subcategory
+		- Values - Sales
+
+Corelational Charts
+- Scatter Chart
+- Table - 03_Scatter_Bubble
+- Pie Chart - Option 16
+	- Values - Customer
+	- X-Axis - Ad Spend
+	- Y-Axis - Sales
+	- Legend - Channel
+		- Format painter from CChart 1
+		- Title - "Channelwise Spend for Customers"
+		- Legebds
+			- Font size
+			- Color
+			- Position
+		- X-Axis 
+			- Values 
+				- Font size 
+		- Markers
+			- Shape
+ 
+Waterfall
+- Table - 05_Waterfall
+- Option 14
+	- Category - Componenet
+	- Y-Axis - Amount
+	- Format painter from CChart 1
+		- Title - "Revenue - Profit Bridge"
+		- Legebds
+			- Font size
+			- Color
+			- Position
+		- X-Axis 
+			- Values 
+				- Font size 
+
+Funnel Chart
+- Table - 06_Funnel
+- Option 15
+	- Category - Stage
+	- Values - Leads
+	- Format painter from CChart 1
+		- Title - "Lead conversion"	 
+		- Category Labels 
+			- Color
+
+- Cards, KPI Cards, Gauge
+- 07_KPI_Gauge
+	- Card 
+	- Visual 23
+		- Values - Target, Actual, Variance
+		- Format painter from CChart 1
+			- Rename for this Visual 
+				- For all cards
+			- Muliti card Layout
+				- Border - On
+			- Cards
+				- Acent bar - On
+					- Color
+					- Width - 2
+			- Callouts
+				- Labels & Values
+					- Font size and Color
+			- General
+				- Effects
+					- Visual Border - Off
+					- Shadow - On	
+	- KPI 
+	- Visual 24
+		- Value - Actual
+		- Trend axis - Month
+		- Target - Target
+		- Format painter from CChart 1
+			- Title - "Performance"
+			- Callout Value
+				- Font size - 30
+				- Display units - Millions
+			- Target label
+				- Font size - 20
+				- Display units - Millions
+			- Date - On
+	- Guage
+	- Visual 22
+		- Value - Actual
+		- Min. Value - Gauge Min
+		- Max. Value - Gauge Max
+		- Target Value - Target
+		- Format painter from CChart 1
+			- Title - "Achievement Gauge"
+			
+Tabular Data
+- 09_Hierarchy_Matrix
+	- Table
+	- Visual 26
+		- Columns - Product, Units, Sales, Profit
+		- Values
+			- Values
+				- Font size - 14
+		- Column headers
+			- Font size - 16
+	- Matrix
+	- Visual 27
+		- Rows - Category, Subcategory, Product
+		- Columns - Year
+		- Values - Sales, Profut
+			- Values
+				- Font size - 14
+		- Column and Row headers
+			- Font size - 16

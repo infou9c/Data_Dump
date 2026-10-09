@@ -1,0 +1,26 @@
+Bar Chart
+- Worksheet {Bar Chart}
+- Ctrl + T
+- Table Design ribbon
+	- Summarize with Pivot table
+	- Set location for Pivot table
+	- Select columns Pivottable fields
+	- Click anywhere on Pivot table
+		- Pivot Table Analze ribbon
+		- Select Pivot Chart
+		- Bar chart
+		- Paint icon - Styles 
+		- + icon - setting
+			- Keep only Axis and Data Labels
+
+Line Chart
+- Worksheet {Line Chart}
+
+Line Chart
+- Worksheet {Pie Chart}
+
+Cluster / Stacked ColumnsChart
+- Worksheet {Stacked Column Chart}
+	- Column Chart 
+		- Clustered
+		- Stacked

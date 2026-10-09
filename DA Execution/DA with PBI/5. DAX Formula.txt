@@ -1,0 +1,210 @@
+ - Create new project
+- Import 3"5. DAX Formulas.xlsx"file
+- Select only the following tables
+	- Product
+	- Customer
+	- Salesperson
+	- Date
+	- Sales
+
+- Types of tables
+	- Dimension
+	- Facts
+
+Product = Dimension
+- Products with category, subcategory, brand, price, and standard cost
+
+Customer = Dimension
+- Customers with segment, city, state, region, signup date, and loyalty tier
+
+Salesperson = Dimension
+- Salespeople with region, manager, hire date, and level
+
+Date = Dimension
+- Date table for 2024 and 2025, including calendar and fiscal attributes
+
+Sales = Facts
+- Sales transactions with prices, discounts, costs, profit, returns, channels, and shipping details
+
+Create Relationship
+FactSales => Date
+- ShipDate => Date
+- OrderDate => Date
+
+== Note - If Date table not available, we can create one new calenderDate table
+	CalenderTable = CALENDER(MIN(Table[Date]), MAX(Table[Date]))
+		- Start date, min date in table
+		- End date, max date in table
+	CalenderTable = CALENDERAUTO()
+		- This will pick start date of the year, for the first date occurance in related table.
+		- Similarly, end date of the year, for the last date occurance in the related table.
+	CalenderTable = CALENDERAUTO(3)
+		- Apr-Mar Finanacial Year
+	
+=========== DAX
+
+=========== Calculated column
+- Open Sales table view and select Sales table
+- Table tools view - New column
+
+Classify each sale as High, Medium, or Low value
+Sale Amount > 100000 => High | >= 40000 => Medium | Else Low
+	SaleBand = SWITCH(TRUE(), Sales[SalesAmount] >= 100000, "High", Sales[SalesAmount] >= 40000, "Medium", "Low")
+
+Flag the sales transaction which were give discounts
+	DiscountFlag = IF(Sales[Profit] > 0, "Discounted", "NA")
+
+Calculate shipping duration in days
+	ShippingDays = DATEDIFF(Sales[OrderDate], Sales[ShipDate], DAY)
+
+=========== Measures
+- Table View - Home - New Table - pMeasures
+- Right-click on pMeasures - New Measure
+
+Calculate total sales amount
+	Total Sales = SUM(Sales[SalesAmount])
+
+	IMP => Implicit & Explicit calculations 
+	- Copy-paste the same card, remove the [Total Sales]
+	- Add Sales[SalesAmount] to this card.
+	- Observe it shows same values as that of Total Sales
+		- [Sum of Sales Amount] = [Total Sales]
+	- [Sum of Sales Amount] = Implicit sum
+		- Expand the drop-down on Values in the Visualizations panel
+		- Sum, Avg, Count etc, various implicit functions.
+	
+	- Difference between Implicit & Explicit calculations  & Explicit calculations 
+		- Implicit = Is on table columns.
+		- Explicit = External calculations, can be used for further calucations.
+	
+	IMP => Difference between Calculated Column and Measures
+		- Refer DAX Formulas.pdf
+	
+Calculate overall quantity sold 
+	Total Quantity = SUM(Sales[Quantity])
+
+Calculate gross sales as Quantity multiplied by UnitPrice row by row
+	Gross Sales = SUMX(Sales, Sales[Quantity] * Sales[UnitPrice])
+		- Looping
+
+Count number of sale transaction
+	Sales Count = COUNTROWS(Sales)
+	
+	Additional DAX:
+	COUNT(Table[ColumnName]) => Used for counting. Skips blank rows
+	COUNTBLANK(Table[ColumnName]) => Counts blank rows
+	COUNTA(Table[ColumnName]) => Used to count where datatype is boolean.
+	DISTINCTCOUNT(Table[ColumnName]) => Count distinct values for the input column.
+	COUNTX(Table, FilterExpression) => Count with a condition.
+		- COUNTX(Table, if(Table[ColumnName] > 5, 1, BLANK()))
+			- It will count all "1" and return total count.
+		- COUNTX(FILTER(Table, Table[ColumnName] > 5), Table[ColumnName]) 
+	COUNTAX(Table, FilterExpression) => Count with a condition for boolean datatypes.
+	COUNTROWS(Table, FilterExpression) => Count with a filter context.
+		- COUNTROWS(FILTER(Table, Table[ColumnName] > 5))
+
+Find minimum and maximum selling price
+	Min Price = MIN(Sales[UnitPrice])
+	Max Price = MAX(Sales[UnitPrice])
+
+Calculate average unit price
+	Avg Unit Price = AVERAGE(Sales[UnitPrice])
+
+Calculate total profit and profit margin %
+	Total Profit = SUM(Sales[Profit])
+	Profit Margin % = DIVIDE([Total Profit], [Total Sales])
+		- Measures used for calculations
+
+Calculate sales only for Product = Electronics 
+	Electronics Sales = CALCULATE([Total Sales], Product[Category] = "Electronics")
+
+Calculate sales for West region
+	West Sales = CALCULATE([Total Sales], Customer[Region] = "West")
+	West Sales = CALCULATE([Total Sales], FILTER(Customer, Customer[Region] = "West"))
+	
+Calculate total sales where quantity is greater than 3
+	High Quantity Sales = CALCULATE([Total Sales], FILTER(Sales, Sales[Quantity] > 3))
+	
+Calculate weekend-day sales excluding weekdays
+	Weekend Sales = CALCULATE([Total Sales], 'Date'[IsWeekend] = TRUE())
+
+Count high-value customers whose sales exceed ₹100,000
+	High Value Customers = COUNTROWS(FILTER(VALUES(Customer[CustomerID]), CALCULATE([Total Sales]) > 100000))
+	
+Count customers with purchases in both 2024 and 2025
+	Customers In 24-25 = VAR C2024 = CALCULATETABLE(VALUES(Sales[CustomerID]), 'Date'[Year] = 2024) VAR C2025 = CALCULATETABLE(VALUES(Sales[CustomerID]), 'Date'[Year] = 2025) RETURN COUNTROWS(INTERSECT(C2024, C2025))
+
+=========== Measures on Matrix
+Calculate categorywise percentage of total sales.
+- Add Matrix visual and add below items:
+	- Add [Category] from [Product]
+		- Increase font of Values, Columns and Row headers
+	- Add [Total Sales] measure	
+		Categorywise %  of Total = DIVIDE([Total Sales], CALCULATE([Total Sales], ALL(Product[Category]))) * 100
+ 
+
+Calculate productwise percentage of total sales.
+- Add Matrix visual and add below items:
+	- Add [ProductName] from [Product]
+	- Add [Total Sales] measure	
+- Insert Button Slicer
+	- Add [ProductName] from [Product]
+		Product %  of Total  = DIVIDE([Total Sales], CALCULATE([Total Sales], ALLSELECTED(Product[ProductName]))) * 100
+	
+		Productwise %  of Total = DIVIDE([Total Sales], CALCULATE([Total Sales], ALL(Product[ProductName]))) * 100
+
+
+Rank products by total sales
+- Add Matrix visual and add below items:
+	- Add [ProductName] from [Product]
+	- Add [Total Sales] measure		
+		Rank by Sales = RANKX(ALL(Product[ProductName]), [Total Sales], , DESC, DENSE)
+		
+		Rank by Qty = RANKX(ALL(Product[ProductName]), [Total Quantity], , DESC, DENSE)
+
+Calculate quantity sold month-to-date
+Calculate quantity sold quarter-to-date
+Calculate quantity sold year-to-date
+- Add Matrix visual and add below items:
+	- Add [ProductName] from [Product]
+	- Add [Quantity] column from [Sales]		
+
+	Quantity MTD = TOTALMTD([Total Quantity], 'Date'[Date])
+		- Total of Month 1 Day 1 = Day 1
+		- Total of Month 1 Day 2 = Day 1 + Day 2
+		- Total of Month 1 Day 3 = Day 1 + Day 2 + Day 3
+		- Total of Month 1 Day 30 = Day 1 + ... + Day 29
+		- Total of Month 2 Day 1 = Day 1
+		- Total of Month 2 Day 2 = Day 1 + Day 2
+	Quantity QTD = TOTALQTD([Total Quantity], 'Date'[Date])
+		- Total of Quarter 1 Month 1 = Month 1
+		- Total of Quarter 1 Month 2 = Month 1 + Month 2
+		- Total of Quarter 1 Month 3 = Month 1 +Month 2 + Month 3
+		- Total of Quarter 2 Month 1 = Month 1
+		- Total of Quarter 2 Month 2 = Month 1 + Month 2
+	Quantity YTD = TOTALYTD([Total Quantity], 'Date'[Date])
+		- Total of Year 1 Quarter 1 = Quarter 1
+		- Total of Year 1 Quarter 2 = Quarter 1 + Quarter 2
+		- Total of Year 1 Quarter 3 = Quarter 1 +Quarter 2 + Quarter 3
+		- Total of Year 1 Quarter 4 = Quarter 1 +Quarter 2 + Quarter 3 + Quarter 4
+		- Total of Year 2 Quarter 1 = Quarter 1
+		- Total of Year 2 Quarter 2 = Quarter 1 + Quarter 2
+		
+	- Add Line chart visual
+		- X-axis = Date, remove year and quarter-to-date
+			- Remove year, Quarter
+		- Values = MTD
+		- Apply filter for Month
+
+- Same can be done with Sales Data
+
+	Sales MTD = TOTALMTD([Total Sales], 'Date'[Date])
+	Sales QTD = TOTALQTD([Total Sales], 'Date'[Date])
+	Sales YTD = TOTALYTD([Total Sales], 'Date'[Date])
+
+
+Todo
+- In this section 
+	- Same Period last year
+	- % of highest performaing.
+	

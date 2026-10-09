@@ -1,0 +1,107 @@
+Date => 2026-01-01
+Representation
+- 01/01/2026 (month/day/mear)
+- 01/01/2026 (day/month/mear)
+- 01-Jan-2026
+- 01-Jan-26
+- 2026-01-01
+
+Details on a date "2026-01-01"
+- Day
+- Month
+	- Month number - 1
+	- Month name - January
+	- Month name short - Jan
+- Year
+	- Full name - 2026
+	- Short name - 26
+- Quarter
+	- Name - Q1
+- Week day
+	- Number - 1
+	- Name - Monday
+	- Short name - Mon
+	- Weekend/Weekday
+
+
+
+- Create new project
+- Blank report
+
+- Modelling => Table option (Write a DAX expression to create a new table)
+
+- DAX : Add date range
+CalenderTable = CALENDAR(DATE(2024,1,1),TODAY())
+	 
+IMPORTANT: 
+- Table Tools → Select Date Column → Mark as Date Table
+- Mark as date table => On
+- Choose a date column
+- Sudmit
+ 
+- DAX : Create formatted date column
+FormattedDate = FORMAT(CalenderTable[Date], "dd-MMM-yyyy") 
+
+- DAX : Extract Day
+Day = DAY(CalenderTable[Date])
+
+- DAX : Extract Month number
+Month = MONTH(CalenderTable[Date])
+
+- DAX : Extract Month name
+MonthFullName = FORMAT(CalenderTable[Date], "MMMM")
+MonthShortName = FORMAT(CalenderTable[Date], "MMM")
+
+- DAX : Extract Year number
+Year = YEAR(CalenderTable[Date])
+YearShort = FORMAT(CalenderTable[Date], "YY")
+
+- DAX : Extract Month Year name
+MonthYearShort = FORMAT(CalenderTable[Date],"MMM yyyy")
+
+- DAX : Extract Quarter number
+Quarter = "Q" & QUARTER(CalenderTable[Date])
+
+- DAX : Extract Quarter + Year 
+QuarterYear = "Q" & QUARTER(CalenderTable[Date]) & "-" & FORMAT(CalenderTable[Date],"yyyy")
+
+- DAX : Extract Week Day name
+WeekDay = FORMAT(CalenderTable[Date], "dddd")
+WeekDayShort = FORMAT(CalenderTable[Date], "ddd")
+
+- DAX : Extract Week Day number
+WeekDayNumber = WEEKDAY(CalenderTable[Date], 2)
+
+- DAX : Extract IsWeekend
+DayType =
+IF(
+    WEEKDAY(CalenderTable[Date],2) > 5,
+    "Weekend",
+    "Weekday"
+)
+
+- DAX : Extract FullDate in text formatted (Tuesday, September 1, 2026)
+FullDate = FORMAT(CalenderTable[Date], "dddd") & ", " &  FORMAT(CalenderTable[Date], "MMMM") & ", " & FORMAT(CalenderTable[Date], "dd")& ", " & FORMAT(CalenderTable[Date], "YYYY")
+
+FullDateShort = FORMAT(CalenderTable[Date], "ddd") & ", " &  FORMAT(CalenderTable[Date], "MMM") & ", " & FORMAT(CalenderTable[Date], "dd")& ", " & FORMAT(CalenderTable[Date], "YY")
+
+- Network Days
+	- Import "4. Holidays.xlsx"
+	
+	DAX : WorkingDays = NETWORKDAYS("01-01-2026","31-01-2026",1, Holidays)
+	
+	1 or omitted: Saturday, Sunday
+	2: Sunday, Monday
+	3: Monday, Tuesday
+	4: Tuesday, Wednesday
+	5: Wednesday, Thursday
+	6: Thursday, Friday
+	7: Friday, Saturday
+	11: Sunday only
+	12: Monday only
+	13: Tuesday only
+	14: Wednesday only
+	15: Thursday only
+	16: Friday only
+	17: Saturday only
+	

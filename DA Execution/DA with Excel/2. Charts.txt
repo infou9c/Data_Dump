@@ -1,0 +1,28 @@
+Below all simple chart types
+
+Scatter Plot
+- Worksheet {Scatter Plot}
+	- Insert menu
+	- Charts robbon
+	- Last option
+
+Combo Plot
+- Worksheet {Combo Plot}
+
+Histogram
+- Worksheet {Histogram}
+	- 2md option in Histogram
+	
+Waterfall
+- Worksheet {Waterfall}
+
+Funnel
+- Worksheet {Funnel}
+
+Treemap
+- Worksheet {Treemap}
+
+Box Plot
+- Worksheet {Box Plot}
+
+

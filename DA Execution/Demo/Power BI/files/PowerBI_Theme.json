@@ -1,0 +1,33 @@
+{
+  "name": "Cafe Sales Insights Theme",
+  "dataColors": [
+    "#1F4E78",
+    "#70AD47",
+    "#FFC000",
+    "#ED7D31",
+    "#5B9BD5",
+    "#A5A5A5",
+    "#4472C4",
+    "#C00000"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#1F1F1F",
+  "tableAccent": "#1F4E78",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "title": [
+          {
+            "fontSize": 12,
+            "color": {
+              "solid": {
+                "color": "#1F4E78"
+              }
+            },
+            "fontFamily": "Segoe UI"
+          }
+        ]
+      }
+    }
+  }
+}

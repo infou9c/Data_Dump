@@ -1,0 +1,154 @@
+What is data?
+How to format your data?
+	- Show data in a table format {Data & Formatting}
+	- Copy data from {Data & Formatting} w/o formatting
+	- Formatting of table
+		- Manual enter some data
+		- All features in "Font" ribbon
+	- Demostrate [Alt+D+O] functionality
+	
+Data Types in Excel
+	- "Number" ribbon
+		- General
+		- Number
+		- Currency
+		- Accounting
+		- Short Date
+		- Long Date
+		- Time
+		- Percentage
+		- Text
+	- Show data from {Number Format}
+		- General => Text or Numbers
+		- Number => Only Numbers, can change decimanl from ribbon
+		- Currency => Add INR currency
+		- Accounting 
+		- Short Date
+		- Long Date
+		- Percentage => Clear data to apply percentage
+	- Date FOrmats 
+		- D M YY
+		- DD MM YY
+		- DD MM YYYY
+		- DDD MMM YYYY
+		- DDDD MMMM YYYY
+		- Add customs formats to a date
+
+Conditional Formatting
+- Show data from {Conditinal Formatting}
+	- Table 1 (Single column values highlight)
+		- Column has names, apply format accordingly.
+			- Select all data with the column
+			- Conditional Formatting
+			- Greater than, set a value and choose color
+		- Apply similar to all other column values
+		- Also show custom filter options in value pop-up
+	- Table 2 (Complete row highlight)
+		- Highligh rows Qty > 5
+			- Select all values (Not Headers)
+			- Conditional formatting - New Rule
+			- Select Rule Type => "Use a formula to..."
+			=> =$E19 > 5
+			- Apply 
+
+Filter and Sorting
+- Show data from {Filter and Sorting}
+	- Convert the data into table
+	- Option 1: Ctrl + T 
+	- Option 2: Select all range including headers, Stlyes ribbon - Format Table - select any options
+		- Pop-up, Selected - "My table has headers"
+		- Table Design ribbon opens
+		- Check table name
+		- Set Table Styles
+	- Autonatically filters applied on Headers
+		- Demo filters
+	- Sorting - Header filter drop down
+		- Sort DESC
+		- Sort ASC
+	- Filter drop down Text/Number filters	
+		- Same as conditional formatting	
+
+Basic Formulas
+- Show data from {Basic Formulas}
+	- Table 1
+		=> =sum(range) OR => Alt=
+	- Table 2
+		=> =AVERAGE(range) OR => Alt HUA
+	- Table 3
+		=> =Max(range) OR => Alt HUM
+	- Table 4
+		=> =Min(range) OR => Alt HUI
+	- Table 5
+		- count - used to count only numbers
+		=> =COUNT(range)
+	- Table 6
+		- countA - used to count all numbers, text
+		=> =countA(range)
+		=> =COUNTA(range) - count(range) gives count of numbers.
+	- Table 7
+		- countblank - used to count how many blanks
+		=> =COUNTBLANK(range)
+
+Advanced Formulas
+- Show data from {Advanced Formulas}
+	- Table 1
+		- Upper, lower, proper
+		=> =UPPER(B2)
+		=> =LOWER(B2)
+		=> =PROPER(B2)
+	- Table 2
+		- Left, Mid, Right
+		=> =LEFT(B17,3)
+		=> =MID(B17,4, 4)
+		=> =RIGHT(B17, 3)
+	- Table 3
+		- Convert date in to desired format
+		=> =TEXT(B32, "DD-MMM-yyyy")
+		=> =TEXT(B32, "DDDD")
+		> =TEXT(B32, "MMMM")
+		> =TEXT(B32, "YYYY")
+		=> =TEXT(B32, "DDD, DD-MMM-yyyy")
+	- Table 4
+		- Find due date
+		=> =EDATE(B48, C48)
+		=> =TEXT(D48, "DDD, DD-MMM-YYYY")
+	- Table 5
+		- Find total days between dates
+		=> =DAYS(C65,B65) EndDate, StartDate
+		- Find working days between dates. Sat-Sun off days
+		=> =NETWORKDAYS(B65,C65) StartDate, EndDate
+	- Table 6
+		- If
+		=> =IF(H88 <=35%, "Fail", "Pass")
+	- Table 7
+		- Find total of all values from a range for a criteria
+			- SUMIF(RANGE, CRITERIA, SUM_RANGE)
+			=> =SUMIF(B117:$B$616, $G$117, $C$117:$C$616)
+				- After selecting range, click F4 to fix the range
+				- After selecting criteria, click F4 to fix the range
+				- After selecting sum_range, click F4 to fix the range
+		- Find average of all values from a range for a criteria
+			- AVERAGEIF(RANGE, CRITERIA, SUM_RANGE)
+			=> =AVERAGEIF(B117:$B$616, $G$117, $C$117:$C$616)
+		- Find count of all values from a range for a criteria
+			- COUNTIF(RANGE, CRITERIA)
+			=> =COUNTIF(B117:$B$616, $G$117)
+
+- Lookup Formulas
+- Show data from {Lookup Formula}
+	- Table 1
+		=> =VLOOKUP(G2, $B$2:$E$21, 4, FALSE)
+		- Criteria, complete range, index of value column, False = exact match
+	- Table 2
+		=> =XLOOKUP(G12, $B$2:$B$21, $E$2:$E$21)
+		- Criteria, column range of criteria, column range of values
+
+Table - Slicer
+- Show data from {Table - Slicer}
+	- Convert to table, Table Design ribbon
+	- Insert Slicer	
+		- Select column
+
+
+https://www.youtube.com/watch?v=2SUSDbeE9Zw
+Learn Excel in 60 Minutes – Complete Beginner to Pro Course (2026)

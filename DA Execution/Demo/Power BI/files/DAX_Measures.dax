@@ -1,0 +1,13 @@
+-- Table name assumed: SalesData
+Total Sales = SUM(SalesData[Sales])
+Total Cost = SUM(SalesData[Cost])
+Total Profit = SUM(SalesData[Profit])
+Total Quantity = SUM(SalesData[Quantity])
+Total Orders = DISTINCTCOUNT(SalesData[Order_ID])
+Average Order Value = DIVIDE([Total Sales], [Total Orders])
+Profit Margin % = DIVIDE([Total Profit], [Total Sales])
+Avg Profit per Order = DIVIDE([Total Profit], [Total Orders])
+Dine-in Sales = CALCULATE([Total Sales], SalesData[Order_Type] = "Dine-in")
+Delivery Sales = CALCULATE([Total Sales], SalesData[Order_Type] = "Delivery")
+Top Product Sales = MAXX(VALUES(SalesData[Product]), [Total Sales])
+Month = FORMAT(SalesData[Order_Date], "MMM yyyy")

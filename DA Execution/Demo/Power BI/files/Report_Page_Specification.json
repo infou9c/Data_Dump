@@ -1,0 +1,35 @@
+{
+  "reportName": "Cafe Sales Insights",
+  "pages": [
+    {
+      "name": "Key KPIs",
+      "visuals": [
+        "KPI cards",
+        "Product Performance table",
+        "Sales by Product bar chart",
+        "Slicers"
+      ]
+    },
+    {
+      "name": "Visuals and Charts showing important insights",
+      "visuals": [
+        "Monthly Sales and Profit line chart",
+        "Sales by Product bar chart",
+        "Profit by City chart",
+        "Sales by Age Group chart",
+        "Payment Mode share donut",
+        "Order Type share donut",
+        "Insight text box"
+      ]
+    }
+  ],
+  "recommendedMeasures": [
+    "Total Sales",
+    "Total Cost",
+    "Total Profit",
+    "Total Orders",
+    "Total Quantity",
+    "Average Order Value",
+    "Profit Margin %"
+  ]
+}
