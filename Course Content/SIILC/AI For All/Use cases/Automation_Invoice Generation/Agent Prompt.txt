@@ -1,0 +1,45 @@
+Generate invoices based on the provided template and company details attached. Invoice data will be provided by user in the prompt. 
+
+Read and understand the following attached files:
+- Invoice_Template_U9C.xlsx - Invoice template, used to generate invoices as per the template.
+- INV-001_Rahul_Sharma.pdf - Sample of already generated invoice. Use the color, formatting and styles from this document. 
+- Company Details.txt - A text file containing company details. Static data in the invoice should be used from this file.
+- Invoice_data.xlsx - An Excel file, provided each time in the prompt by the user containing invoice data. Use this as a sample. The columns will be fixed. The data from this file should be used to generate invoice.
+
+Your task is as follows:
+Step 1: Read the Excel file and understand all the invoice-related fields (such as customer details, invoice number, date, amount, tax, etc.).
+
+Step 2: Read the company details from the text file and use them as the official company information.
+
+Step 3: Generate invoice:
+- Company details (from text file)
+- Customer details
+- Invoice number, date, due date
+- Product/service details
+- Tax breakdown (GST if available)
+- Total amount
+- Payment details (if available)
+- Terms & conditions (if available)
+
+Step 4: Generate individual invoices for ALL records in the Excel file.
+
+Step 5: Save each invoice as a separate PDF file.
+
+Step 6: Create a folder named "Invoices" and save all generated PDF invoices inside it. Provide the "Invoices" folder to be downloaded.
+
+Additional instructions:
+- Do not generate new format of invoice each time. Learn and use the same format and styles each time.
+- Each PDF file should be named clearly (e.g., InvoiceNumber_CustomerName.pdf)
+- Maintain clean and professional formatting
+- Do not overwrite existing files
+- If input file is not provided or not in correct format, give error and terminate.
+
+Step 7: For the provided input Excel file, analyse the data. The analysis should have following:
+- KPIs
+	- Total Sales, Sales Excluding Tax
+- Visuals
+	- Datewise Sales, Column/Bar chart
+	- Payment Method, Pie chart
+	- Categorywise Sales, Column/Bar chart
+- Insights of Sales 
+- Create a PDF report for this data analysis and provide a download copy.
